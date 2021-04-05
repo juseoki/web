@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 
-
 const {MONGO_ID, MONGO_PASSWORD, NODE_ENV} = process.env;
-const MONGO_URL = 'mongodb://${MONGO_ID}:${MONGO_PASSWORD}@lacalhost:27017/admin';
-    
+const MONGO_URL = 'mongodb://dev:pwd@wm0519.synology.me:27017/account'; 
 module.exports = () =>{
     const connect = () => {
         if(NODE_ENV !== 'production'){
@@ -28,6 +26,5 @@ module.exports = () =>{
         console.log('mongodb connection retry');
         connect();
     });
-    
-    require('./user');
+   
 };
